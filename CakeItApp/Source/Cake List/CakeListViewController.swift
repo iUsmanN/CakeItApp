@@ -20,7 +20,11 @@ class CakeListViewController: UIViewController {
         setupView()
         bindViewModel()
     }
+}
+
+extension CakeListViewController {
     
+    /// Setups View Controller
     func setupView() {
         tableView.register(UINib(nibName: "CakeTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
@@ -28,6 +32,7 @@ class CakeListViewController: UIViewController {
         title = "🎂CakeItApp🍰"
     }
     
+    /// Connects View Controller to the View Model
     func bindViewModel() {
         viewModel.subject.sink(receiveValue: { [weak self] success in
             if success {
@@ -40,10 +45,15 @@ class CakeListViewController: UIViewController {
     }
 }
 
-extension CakeListViewController: UITableViewDelegate {
+extension CakeListViewController: UITableViewDelegate, ViewControllerInstantiator {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        i = indexPath.row
-        performSegue(withIdentifier: "segue", sender: tableView)
+        
+        /// Replaced Segue with instantiating View Controller to avoid using the extra variable "i" for data passing during performing segue.
+        guard let viewController = newViewController(storyboard: .Main, viewController: .CakeDetailViewController) as? CakeDetailViewController else { return }
+        let cake = viewModel.getCake(at: indexPath.row)
+        viewController.setupViewModel(with: cake)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

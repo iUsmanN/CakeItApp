@@ -26,11 +26,14 @@ extension CakeListViewModel {
 }
 
 extension CakeListViewModel: CakeService {
+    
+    /// Fetches cakes from the Service and prints an error if required.
     func fetchCakes() {
         getCakes()
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
+                    print(error)
                     self?.subject.send(false)
                 case .finished:
                     self?.subject.send(true)

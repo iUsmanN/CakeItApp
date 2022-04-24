@@ -7,8 +7,10 @@
 
 import Foundation
 
+/// App Constants
 struct Constants {
     
+    /// Basic Networking Constants
     struct Networking {
         static let url = "gist.githubusercontent.com"
         static let scheme = "https"

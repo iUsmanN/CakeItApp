@@ -13,6 +13,8 @@ class CakeTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
+    /// Sets up the cake cell with the cake input
+    /// - Parameter input: Cake input to be shown
     func setupCell(input: Cake) {
         titleLabel.text = input.title
         descLabel.text = input.desc

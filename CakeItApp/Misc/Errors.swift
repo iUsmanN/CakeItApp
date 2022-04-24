@@ -7,10 +7,11 @@
 
 import Foundation
 
-enum MyError: Error {
+/// Custom Error Enum
+enum CakeAppError: Error {
+    
     case GeneralError
     
     //Networking
     case NetworkEngineError
-    case DataParsingError
 }

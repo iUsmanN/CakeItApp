@@ -9,11 +9,16 @@ import Foundation
 import Combine
 
 protocol CakeService: NetworkEngine {
-    func getCakes() -> Future<[Cake], MyError>
+    
+    /// Prepares and makes an API call to get Cakes.
+    /// - Returns: Future object containing wither the cakes or an error.
+    func getCakes() -> Future<[Cake], CakeAppError>
 }
 
 extension CakeService {
-    func getCakes() -> Future<[Cake], MyError> {
+    
+    /// Default implementation for Protocol Oriented Programming
+    func getCakes() -> Future<[Cake], CakeAppError> {
         let endpoint = Endpoint(scheme: Constants.Networking.scheme,
                                 host: Constants.Networking.url,
                                 path: Constants.Networking.path,

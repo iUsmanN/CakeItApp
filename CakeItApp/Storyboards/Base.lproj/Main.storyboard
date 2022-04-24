@@ -86,7 +86,7 @@
         <!--Cake Detail View Controller-->
         <scene sceneID="DeM-dd-MJx">
             <objects>
-                <viewController id="DYd-WC-H7w" customClass="CakeDetailViewController" customModule="CakeItApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CakeDetailViewController" id="DYd-WC-H7w" customClass="CakeDetailViewController" customModule="CakeItApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xbg-t7-XNL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
